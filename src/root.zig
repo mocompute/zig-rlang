@@ -239,7 +239,8 @@ pub const PackageSpec = struct {
 
         var it = std.mem.splitScalar(u8, in, ',');
         while (it.next()) |x| {
-            try out.append(try PackageSpec.parse(x));
+            if (x.len != 0)
+                try out.append(try PackageSpec.parse(x));
         }
 
         return out.toOwnedSlice();
@@ -557,7 +558,7 @@ test "PackageSpec" {
 test "PackageSpec.parseList" {
     const allocator = std.testing.allocator;
 
-    const v1 = try PackageSpec.parseList(allocator, "a, b (> 1), c (< 5.3)");
+    const v1 = try PackageSpec.parseList(allocator, "a, b (> 1), c (< 5.3),");
     defer allocator.free(v1);
 
     try testing.expectEqual(3, v1.len);
