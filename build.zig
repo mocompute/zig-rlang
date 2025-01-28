@@ -16,7 +16,7 @@ pub fn build(b: *std.Build) void {
 
     // zig module
 
-    const lib_mod = b.addModule("dcf", .{
+    const lib_mod = b.addModule("rlang", .{
         .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
@@ -25,7 +25,7 @@ pub fn build(b: *std.Build) void {
     // static library
 
     const lib = b.addStaticLibrary(.{
-        .name = "dcf",
+        .name = "rlang",
         .root_module = lib_mod,
         .strip = strip,
     });
@@ -35,7 +35,7 @@ pub fn build(b: *std.Build) void {
 
     const check = b.step("check", "Check if lib compiles");
     const lib_check = b.addStaticLibrary(.{
-        .name = "dcf",
+        .name = "rlang",
         .root_module = lib_mod,
     });
     check.dependOn(&lib_check.step);
