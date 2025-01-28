@@ -441,6 +441,14 @@ test mergePackageSpecs {
     }
 }
 
+/// Type aliase for an AraryHashMap of PackageSpec
+pub const PackageSpecHashMap = std.ArrayHashMap(
+    PackageSpec,
+    bool,
+    PackageSpecContext,
+    true,
+);
+
 /// Provide equality and hash for an AutoHashMap of PackageSpec.
 pub const PackageSpecContext = struct {
     pub fn eql(_: Self, a: PackageSpec, b: PackageSpec, _: usize) bool {
