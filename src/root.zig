@@ -143,7 +143,9 @@ pub const VersionConstraint = extern struct {
 
     /// Attempt to parse a string into a version and initialise the
     /// VersionConstraint struct, or return an error.
-    pub fn parseOperatorVersion(operator: Operator, version: []const u8) !VersionConstraint {
+    pub fn parseOperatorVersion(operator: Operator, version: []const u8) error{
+        InvalidFormat,
+    }!VersionConstraint {
         return .{ .operator = operator, .version = try Version.parse(version) };
     }
 
