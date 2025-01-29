@@ -181,7 +181,8 @@ pub const PackageSpec = struct {
     /// Attempt to parse string into a name and optional version
     /// constraint. The format is `name (>= 3.2)` where the
     /// parenthetical expression is optional. The operators `=` and
-    /// `==` are considered equal.
+    /// `==` are considered equal. Lifetime of string must exceed that
+    /// of returned PackageSpec.
     pub fn parse(string: []const u8) error{InvalidFormat}!PackageSpec {
         const trim = std.mem.trim;
 
@@ -216,7 +217,9 @@ pub const PackageSpec = struct {
         };
     }
 
-    /// Parse a comma-separated list of package specs. Caller owns returned slice.
+    /// Parse a comma-separated list of package specs. Caller owns
+    /// returned slice. Lifetime of input must exceed that of return
+    /// value.
     pub fn parseList(alloc: std.mem.Allocator, in: []const u8) error{
         InvalidFormat,
         OutOfMemory,
