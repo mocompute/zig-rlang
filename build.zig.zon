@@ -1,6 +1,12 @@
 .{
     .name = "rlang",
     .version = "0.0.0-dev",
+    .dependencies = .{
+        .mos = .{
+            .url = "https://github.com/mocompute/mos/archive/refs/tags/v0.3.0.tar.gz",
+            .hash = "1220c0172b7ba886061915cb3521c38cd5146d5007e5c7ffb920aee8a1ecc66953f1",
+        },
+    },
 
     .paths = .{
         "build.zig",

@@ -14,6 +14,13 @@ pub fn build(b: *std.Build) void {
         .ReleaseFast, .ReleaseSmall => true,
     };
 
+    // dependencies
+
+    const mos = b.dependency("mos", .{
+        .target = target,
+        .optimize = optimize,
+    }).module("mos");
+
     // zig module
 
     const lib_mod = b.addModule("rlang", .{
@@ -21,6 +28,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    lib_mod.addImport("mos", mos);
 
     // static library
 

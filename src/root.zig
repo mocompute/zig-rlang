@@ -671,5 +671,11 @@ test "version with 4 fields" {
     try expectEqual(456, v1.rev);
 }
 
+test "all" {
+    _ = rlang;
+}
+
 const std = @import("std");
 const testing = std.testing;
+
+pub const rlang = @import("rlang.zig");
