@@ -59,7 +59,7 @@ const Token = union(enum) {
     }
 };
 
-const Tokenizer = struct {
+pub const Tokenizer = struct {
     source: []const u8 = &.{},
     index: usize = 0,
     strings: *UniqueStorage,

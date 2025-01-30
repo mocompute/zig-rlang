@@ -683,4 +683,5 @@ pub const Node = rlang.Node;
 pub const FunctionCall = rlang.FunctionCall;
 pub const FunctionArg = rlang.FunctionArg;
 pub const NamedArgument = rlang.NamedArgument;
+pub const Tokenizer = rlang.Tokenizer;
 pub const Parser = rlang.Parser;
