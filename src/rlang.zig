@@ -59,7 +59,7 @@ const Token = union(enum) {
     }
 };
 
-pub const Tokenizer = struct {
+const Tokenizer = struct {
     source: []const u8 = &.{},
     index: usize = 0,
     strings: *UniqueStorage,
@@ -241,7 +241,7 @@ pub const Tokenizer = struct {
 
 // -- parser -------------------------------------------------------
 
-const Node = union(enum) {
+pub const Node = union(enum) {
     function_arg: FunctionArg,
     function_call: FunctionCall,
 
@@ -335,7 +335,7 @@ pub const FunctionArg = union(enum) {
     }
 };
 
-const NamedArgument = struct {
+pub const NamedArgument = struct {
     name: []const u8,
     value: FunctionArg,
 

@@ -678,4 +678,9 @@ test "all" {
 const std = @import("std");
 const testing = std.testing;
 
-pub const rlang = @import("rlang.zig");
+const rlang = @import("rlang.zig");
+pub const Node = rlang.Node;
+pub const FunctionCall = rlang.FunctionCall;
+pub const FunctionArg = rlang.FunctionArg;
+pub const NamedArgument = rlang.NamedArgument;
+pub const Parser = rlang.Parser;
