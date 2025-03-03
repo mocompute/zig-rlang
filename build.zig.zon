@@ -1,10 +1,12 @@
 .{
-    .name = "rlang",
-    .version = "0.1.0",
+    .name = .rlang,
+    .fingerprint = 0x557d1fccbbcf0ce1,
+    .version = "0.2.0",
+    .minimum_zig_version = "0.14.0",
     .dependencies = .{
         .mos = .{
             .url = "https://github.com/mocompute/mos/archive/refs/tags/v0.3.0.tar.gz",
-            .hash = "1220c0172b7ba886061915cb3521c38cd5146d5007e5c7ffb920aee8a1ecc66953f1",
+            .hash = "mos-0.3.0-AAAAAEnJAADAFyt7qIYGGRXLNSHDjNUUbVAH5cf_uSCu",
         },
     },
 
